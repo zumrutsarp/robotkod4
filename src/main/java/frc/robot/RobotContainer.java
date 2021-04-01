@@ -8,6 +8,7 @@
 package frc.robot;
 
 import static frc.robot.Constants.Driveconstant.kDriveKinematics;
+import static frc.robot.Constants.Driveconstant.kPDriveVel;
 
 import java.util.Arrays;
 import java.util.List;
@@ -51,6 +52,9 @@ public class RobotContainer {
   public Joystick m_oparatorController = new Joystick(joystickconstants.koparatorcontrollerport);
   public final climbsubsystem m_climb = new climbsubsystem();
   public final hoppersubsystem m_hopper = new hoppersubsystem();
+public final RobotContainer Trajectory =new RobotContainer();
+
+private DrivetrainSubsystem m_drive;
 
   /**
    * The container for the robot. Contains subsystems, OI devices, and commands.
@@ -115,33 +119,32 @@ public class RobotContainer {
 
   }
 
-  Trajectory exampleTrajectory = TrajectoryGenerator.generateTrajectory(
-      // Start at the origin facing the +X direction
+  edu.wpi.first.wpilibj.trajectory.Trajectory Trajectoryone = TrajectoryGenerator.generateTrajectory(
+      
       new Pose2d(0, 0, new Rotation2d(0)),
-      // Pass through these two interior waypoints, making an 's' curve path
+      
       List.of(new Translation2d(1, 1), new Translation2d(2, -1)),
-      // End 3 meters straight ahead of where we started, facing forward
+      
       new Pose2d(3, 0, new Rotation2d(0)),
-      // Pass config
+      
       config);
-  private Subsystem m_robotDrive;
+ 
 
 
 RamseteCommand ramseteCommand = new RamseteCommand(
-  exampleTrajectory,
-  m_robotDrive::getPose,
+  Trajectoryone,
+  m_drive::getPose,
   new RamseteController(AutoConstants.kRamseteB, AutoConstants.kRamseteZeta),
   new SimpleMotorFeedforward(Driveconstant.ksVolts,
-                             Driveconstant.kvVoltSecondsPerMeter,
-                             Driveconstant.kaVoltSecondsSquaredPerMeter),
-  DriveConstant.kDriveKinematics,
-  m_robotDrive::getWheelSpeeds,
-  new PIDController(Driveconstant.kPDriveVel, 0, 0),
-  new PIDController(Driveconstant.kPDriveVel, 0, 0),
-  // RamseteCommand passes volts to the callback
-  m_robotDrive::tankDriveVolts,
-  m_robotDrive
-);
+  Driveconstant.kvVoltSecondsPerMeter,
+ Driveconstant.kaVoltSecondsSquaredPerMeter),
+   Driveconstant.kDriveKinematics,
+  m_drive:: getWHEELSPEEDS,
+  new PIDController(2, 0, 0),
+  new PIDController(  2 , 0, 0),
+ 
+  m_drive::TankDriveVolts,
+  m_drive);
 
 
 

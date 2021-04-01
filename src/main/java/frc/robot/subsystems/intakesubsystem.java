@@ -16,7 +16,7 @@ public class intakesubsystem extends SubsystemBase {
  
   
 public final  WPI_VictorSPX intakemotor=new WPI_VictorSPX(intakeconstant.kintakemotor);
-private boolean intakestate =false ;
+
   
 
   @Override

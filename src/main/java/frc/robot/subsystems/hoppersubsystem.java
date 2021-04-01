@@ -8,7 +8,7 @@ import frc.robot.Constants.hopperConstants;
 
 public class hoppersubsystem extends SubsystemBase {
 
-private String hopperState  ="nothing ";
+private String hopperState ="nothing ";
   private final WPI_VictorSPX hoppermot1=new WPI_VictorSPX(hopperConstants.khoppermotorport1           );
 
   private final WPI_VictorSPX hoppermot2=new WPI_VictorSPX( hopperConstants.khoppermotorport2          );

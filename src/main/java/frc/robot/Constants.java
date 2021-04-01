@@ -7,7 +7,7 @@
 
 package frc.robot;
 
-import edu.wpi.first.wpilibj.drive.DifferentialDrive;
+
 import edu.wpi.first.wpilibj.kinematics.DifferentialDriveKinematics;
 
 /**
@@ -63,7 +63,16 @@ public static final int k_shootercontrollerport2=5;
     public static final int kclimbsolonoid1=8;
     
     public static final int kclimbsolonoid2=9;
- }
+ }  
+
+  public static final  class AutoConstants{
+
+
+    public static final double kRamseteB = 2;
+     public static final double kRamseteZeta = 0.7;
+        public static final double  kMaxSpeedMetersPerSecond=2.0;
+        public static final double  kMaxAccelerationMetersPerSecondSquared=2.0;
+  }
  public static final class Driveconstant
  {
 
@@ -111,14 +120,5 @@ public static final class hopperConstants {
 }
 
 
-public static final class AutoConstants{
-
-public static final double kRamseteB=2;
-public static final double kRamseteZeta = 0.7;
-public static double kMaxSpeedMetersPerSecond;
-public static double kMaxAccelerationMetersPerSecondSquared;
-
-
-}
 }
 

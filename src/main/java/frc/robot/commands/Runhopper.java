@@ -64,7 +64,9 @@ else if (mode=="fastnormal"){
 
   m_hopper.runhopper("fastnormal",h_speed,h_speed);
 }
-
+else{
+  m_hopper.runhopper("nothing ", -m_speed, m_speed);
+}
   }
 
   // Called once the command ends or is interrupted.

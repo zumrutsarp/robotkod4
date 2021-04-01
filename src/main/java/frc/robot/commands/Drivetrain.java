@@ -11,14 +11,20 @@ public class Drivetrain extends CommandBase {
 
    private final DrivetrainSubsystem m_drive;
    
-  private final DoubleSupplier m_forward;
-  private final DoubleSupplier m_rotation;
+  public   DoubleSupplier m_forward;
+  public   DoubleSupplier m_rotation;
 
 
   public Drivetrain(DrivetrainSubsystem  subsystem,DoubleSupplier rotation,DoubleSupplier forward) {
     
+
+
+
+
+
+    
    m_drive=subsystem;
-   m_forward=forward;
+   m_forward =forward;
     m_rotation = rotation;
     addRequirements(m_drive);
  
